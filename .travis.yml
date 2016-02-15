@@ -1,11 +1,16 @@
-language: cpp
 sudo: required
-dist: trusty
-compiler:
-  - gcc
+language: cpp
 
-os:
-  - linux
+matrix:
+  include:
+    - compiler: gcc
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - g++-4.9
+      env: COMPILER=g++-4.9
   
 before_script:
   - mkdir build
