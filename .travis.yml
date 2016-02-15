@@ -32,4 +32,4 @@ script:
   - cd ..
 
 after_success:
-  - coveralls -r . -b build --gcov gcov-4.9 --verbose
+  - coveralls -r . -b build --gcov gcov-4.9 --gcov-options '\-lp'
