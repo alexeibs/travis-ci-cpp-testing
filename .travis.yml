@@ -3,7 +3,8 @@ language: cpp
 
 matrix:
   include:
-    - compiler: gcc
+    - os: linux
+      compiler: gcc
       addons:
         apt:
           sources:
@@ -13,6 +14,9 @@ matrix:
       env:
         - CXX_COMPILER=g++-4.9
   
+before_install:
+  - pip install --user cpp-coveralls
+
 before_script:
   - mkdir build
   - cd build
@@ -28,4 +32,4 @@ script:
   - cd ..
 
 after_success:
-  - ./coverage.sh
+  - coveralls --dryrun -r src/hello -b build
