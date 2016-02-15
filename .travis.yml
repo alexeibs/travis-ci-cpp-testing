@@ -10,18 +10,22 @@ matrix:
             - ubuntu-toolchain-r-test
           packages:
             - g++-4.9
-      env: COMPILER=g++-4.9
+      env:
+        - CXX_COMPILER=g++-4.9
   
 before_script:
   - mkdir build
   - cd build
-  - cmake ../src/hello
+  - cmake --version
+  - ${CXX_COMPILER} --version
+  - CXX=${CXX_COMPILER} cmake ../src/hello
   - cd ..
 
 script:
   - cd build
   - make
   - ./hello
+  - cd ..
 
 after_success:
   - ./coverage.sh
