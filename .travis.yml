@@ -22,3 +22,6 @@ script:
   - cd build
   - make
   - ./hello
+
+after_success:
+  - ./coverage.sh
