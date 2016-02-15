@@ -1,0 +1,17 @@
+language: cpp
+compiler:
+  - gcc
+
+os:
+  - linux
+  
+before_script:
+  - mkdir build
+  - cd build
+  - cmake ../src/hello
+  - cd ..
+
+script:
+  - cd build
+  - make
+  - ./hello
