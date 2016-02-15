@@ -32,4 +32,4 @@ script:
   - cd ..
 
 after_success:
-  - coveralls -r src/hello -b build
+  - coveralls -r . -b build
