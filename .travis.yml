@@ -21,14 +21,13 @@ install:
   - |
     CMAKE_URL="http://cmake.org/files/v3.4/cmake-3.4.3-Linux-x86_64.tar.gz"
     mkdir cmake && travis_retry wget --no-check-certificate --quiet -O - ${CMAKE_URL} | tar --strip-components=1 -xz -C cmake
-    export PATH=${DEPS_DIR}/cmake/bin:${PATH}
 
 before_script:
   - mkdir build
   - cd build
-  - cmake --version
+  - ./cmake/bin/cmake --version
   - ${CXX_COMPILER} --version
-  - CXX=${CXX_COMPILER} cmake ../src/hello
+  - CXX=${CXX_COMPILER} ./cmake/bin/cmake ../src/hello
   - cd ..
 
 script:
