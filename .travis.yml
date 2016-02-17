@@ -25,9 +25,9 @@ install:
 before_script:
   - mkdir build
   - cd build
-  - ./cmake/bin/cmake --version
+  - ../cmake/bin/cmake --version
   - ${CXX_COMPILER} --version
-  - CXX=${CXX_COMPILER} ./cmake/bin/cmake ../src/hello
+  - CXX=${CXX_COMPILER} ../cmake/bin/cmake ../src/hello
   - cd ..
 
 script:
