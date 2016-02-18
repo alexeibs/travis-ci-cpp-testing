@@ -12,7 +12,7 @@ matrix:
           packages:
             - g++-4.9
       env:
-        - MY_CMAKE='CXX=g++-4.9 ${TRAVIS_BUILD_DIR}/cmake/bin/cmake'
+        - MY_CMAKE="CXX=g++-4.9 ${TRAVIS_BUILD_DIR}/cmake/bin/cmake"
         - MY_CMAKE_GEN='UNIX makefiles'
 
 before_install:
