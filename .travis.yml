@@ -13,7 +13,7 @@ matrix:
             - g++-4.9
       env:
         - MY_CMAKE=${TRAVIS_BUILD_DIR}/cmake/bin/cmake
-        - MY_CMAKE_GEN='UNIX makefiles'
+        - MY_CMAKE_GEN='Unix Makefiles'
         - CXX_COMPILER=g++-4.9
 
 before_install:
