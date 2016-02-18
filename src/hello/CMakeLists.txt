@@ -1,16 +1,16 @@
 cmake_minimum_required(VERSION 3.4)
 project(hello)
 
-find_package(Threads REQUIRED)
-
 include(ExternalProject)
 
 ## GoogleTest/GoogleMock
 ExternalProject_Add(gtest
   PREFIX ${CMAKE_CURRENT_BINARY_DIR}/gtest
   GIT_REPOSITORY https://github.com/google/googletest
-  INSTALL_COMMAND ""
+  CMAKE_COMMAND ${MY_CMAKE}
+  CMAKE_GENERATOR ${MY_CMAKE_GEN}
   CMAKE_ARGS -Dgtest_disable_pthreads:BOOL=ON
+  INSTALL_COMMAND ""
 )
 ExternalProject_Get_Property(gtest source_dir binary_dir)
 

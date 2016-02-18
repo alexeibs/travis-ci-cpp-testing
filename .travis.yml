@@ -12,8 +12,9 @@ matrix:
           packages:
             - g++-4.9
       env:
-        - CXX_COMPILER=g++-4.9
-  
+        - MY_CMAKE=CXX=g++-4.9 ${TRAVIS_BUILD_DIR}/cmake/bin/cmake
+        - MY_CMAKE_GEN=UNIX makefiles
+
 before_install:
   - pip install --user cpp-coveralls
 
@@ -25,9 +26,9 @@ install:
 before_script:
   - mkdir build
   - cd build
-  - ../cmake/bin/cmake --version
-  - ${CXX_COMPILER} --version
-  - CXX=${CXX_COMPILER} ../cmake/bin/cmake ../src/hello
+  - ${MY_CMAKE} --version
+  - echo ${MY_CMAKE_GEN}
+  - ${MY_CMAKE} ../src/hello
   - cd ..
 
 script:
