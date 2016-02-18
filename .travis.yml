@@ -28,8 +28,8 @@ before_script:
   - cd build
   - echo ${MY_CMAKE}
   - echo ${MY_CMAKE_GEN}
-  - ${MY_CMAKE} --version
-  - ${MY_CMAKE} ../src/hello
+  - sh -c "${MY_CMAKE} --version"
+  - sh -c "${MY_CMAKE} ../src/hello"
   - cd ..
 
 script:
