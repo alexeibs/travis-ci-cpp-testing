@@ -11,7 +11,7 @@ ExternalProject_Add(gtest
   GIT_REPOSITORY https://github.com/google/googletest
   CMAKE_COMMAND $ENV{MY_CMAKE}
   CMAKE_GENERATOR $ENV{MY_CMAKE_GEN}
-  CMAKE_ARGS -Dgtest_disable_pthreads:BOOL=ON
+  CMAKE_ARGS -Dgtest_disable_pthreads:BOOL=ON -DCMAKE_CXX_COMPILER=$ENV{CXX_COMPILER}
   INSTALL_COMMAND ""
 )
 ExternalProject_Get_Property(gtest source_dir binary_dir)
@@ -35,8 +35,10 @@ include_directories("${source_dir}/googlemock/include")
 ExternalProject_Add(cryptopp
   PREFIX ${CMAKE_CURRENT_BINARY_DIR}/cryptopp
   GIT_REPOSITORY https://github.com/weidai11/cryptopp
+  CMAKE_COMMAND $ENV{MY_CMAKE}
+  CMAKE_GENERATOR $ENV{MY_CMAKE_GEN}
+  CMAKE_ARGS -DBUILD_TESTING:BOOL=OFF -DCMAKE_CXX_COMPILER=$ENV{CXX_COMPILER}
   INSTALL_COMMAND ""
-  CMAKE_ARGS -DBUILD_TESTING:BOOL=OFF
 )
 ExternalProject_Get_Property(cryptopp source_dir binary_dir)
 
