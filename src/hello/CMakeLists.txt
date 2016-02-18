@@ -3,12 +3,14 @@ project(hello)
 
 include(ExternalProject)
 
+message("my vars: $ENV{MY_CMAKE} $ENV{MY_CMAKE_GEN}")
+
 ## GoogleTest/GoogleMock
 ExternalProject_Add(gtest
   PREFIX ${CMAKE_CURRENT_BINARY_DIR}/gtest
   GIT_REPOSITORY https://github.com/google/googletest
-  CMAKE_COMMAND ${MY_CMAKE}
-  CMAKE_GENERATOR ${MY_CMAKE_GEN}
+  CMAKE_COMMAND $ENV{MY_CMAKE}
+  CMAKE_GENERATOR $ENV{MY_CMAKE_GEN}
   CMAKE_ARGS -Dgtest_disable_pthreads:BOOL=ON
   INSTALL_COMMAND ""
 )
