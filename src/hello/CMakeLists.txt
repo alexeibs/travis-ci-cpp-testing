@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.4)
 project(hello)
 
+find_package(Threads REQUIRED)
+
 include(ExternalProject)
 
 message("my vars: $ENV{MY_CMAKE} $ENV{MY_CMAKE_GEN}")
