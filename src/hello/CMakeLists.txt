@@ -55,6 +55,7 @@ include_directories("${source_dir}/..")
 
 aux_source_directory(. SRC_LIST)
 add_executable(${PROJECT_NAME} ${SRC_LIST})
+add_definitions(-DGTEST_HAS_PTHREAD=0)
 
 TARGET_LINK_LIBRARIES(${PROJECT_NAME}
   libgtest
@@ -62,7 +63,7 @@ TARGET_LINK_LIBRARIES(${PROJECT_NAME}
   libcryptopp
 )
 
-SET(GCC_COVERAGE_COMPILE_FLAGS "-fprofile-arcs -ftest-coverage -pthread")
+SET(GCC_COVERAGE_COMPILE_FLAGS "-fprofile-arcs -ftest-coverage")
 SET(GCC_COVERAGE_LINK_FLAGS    "-lgcov")
 
 SET(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} ${GCC_COVERAGE_COMPILE_FLAGS}")
