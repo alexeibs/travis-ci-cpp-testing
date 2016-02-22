@@ -15,6 +15,7 @@ matrix:
         - MY_CMAKE=${TRAVIS_BUILD_DIR}/cmake/bin/cmake
         - MY_CMAKE_GEN='Unix Makefiles'
         - CXX_COMPILER=g++-4.9
+        - CC_COMPILER=gcc-4.9
 
 before_install:
   - pip install --user cpp-coveralls
@@ -28,8 +29,9 @@ before_script:
   - mkdir build
   - cd build
   - ${CXX_COMPILER} --version
+  - ${CC_COMPILER} --version
   - ${MY_CMAKE} --version
-  - CXX=${CXX_COMPILER} ${MY_CMAKE} ../src/hello
+  - CXX=${CXX_COMPILER} CC=${CC_COMPILER} ${MY_CMAKE} ../src/hello
   - cd ..
 
 script:
