@@ -9,8 +9,10 @@ matrix:
         apt:
           sources:
             - ubuntu-toolchain-r-test
+            - qt551
           packages:
             - g++-4.9
+            - qt55base
       env:
         - MY_CMAKE=${TRAVIS_BUILD_DIR}/cmake/bin/cmake
         - MY_CMAKE_GEN='Unix Makefiles'
