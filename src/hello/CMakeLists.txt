@@ -1,7 +1,11 @@
 cmake_minimum_required(VERSION 3.4)
 project(hello)
 
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
+set(CMAKE_AUTOMOC ON)
+
 find_package(Threads REQUIRED)
+find_package(Qt5Core REQUIRED)
 
 include(ExternalProject)
 
@@ -61,6 +65,7 @@ TARGET_LINK_LIBRARIES(${PROJECT_NAME}
   libgtest
   libgmock
   libcryptopp
+  Qt5::Core
 )
 
 SET(GCC_COVERAGE_COMPILE_FLAGS "-fprofile-arcs -ftest-coverage")
